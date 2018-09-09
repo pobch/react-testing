@@ -1,17 +1,10 @@
 {
-    "extends": "airbnb",
+    "extends": ["react-app", "airbnb", "plugin:prettier/recommended"],
     "rules": {
-        "semi": [2, "never"],
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
-    },
-    "env": {
-        "browser": true
-    },
-    "settings": {
-        "import/resolver": {
-            "node": {
-                "paths": ["src"]
-            }
-        }
+        "react/jsx-filename-extension": [
+            "error",
+            { "extensions": [".js", ".jsx"] }
+        ],
+        "jsx-a11y/href-no-hash": [0]
     }
 }
