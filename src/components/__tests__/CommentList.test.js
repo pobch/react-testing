@@ -24,3 +24,12 @@ afterEach(() => {
 it('creates one <li> per comment', () => {
   expect(wrapped.find('li').length).toEqual(2)
 })
+
+it('shows the text for each comment', () => {
+  // .render() returns a CheerioWrapper
+  // a CheerioWrapper can call .text() to display all text in all html tag
+
+  // console.log(wrapped.render().text())
+  expect(wrapped.render().text()).toContain('comment 1')
+  expect(wrapped.render().text()).toContain('comment 2')
+})
