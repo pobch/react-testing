@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import * as actions from '../actions'
 
 class CommentBox extends Component {
+  static propTypes = {
+    submitComment: PropTypes.func.isRequired
+  }
+
   state = {
     comment: ''
   }
@@ -10,8 +17,11 @@ class CommentBox extends Component {
   }
 
   handleSubmit = event => {
-    event.preventDefault()
+    const { submitComment } = this.props
+    const { comment } = this.state
 
+    event.preventDefault()
+    submitComment(comment)
     this.setState({ comment: '' })
   }
 
@@ -30,4 +40,7 @@ class CommentBox extends Component {
   }
 }
 
-export default CommentBox
+export default connect(
+  null,
+  actions
+)(CommentBox)
