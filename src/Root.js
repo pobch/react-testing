@@ -13,7 +13,9 @@ const Root = props => {
 
 Root.propTypes = {
   children: PropTypes.element.isRequired,
-  initialState: PropTypes.objectOf(PropTypes.object)
+  initialState: PropTypes.shape({
+    comments: PropTypes.arrayOf(PropTypes.string)
+  })
 }
 
 Root.defaultProps = {
