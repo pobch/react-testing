@@ -5,7 +5,8 @@ import * as actions from '../actions'
 
 class CommentBox extends Component {
   static propTypes = {
-    submitComment: PropTypes.func.isRequired
+    submitComment: PropTypes.func.isRequired,
+    fetchComments: PropTypes.func.isRequired
   }
 
   state = {
@@ -26,16 +27,24 @@ class CommentBox extends Component {
   }
 
   render() {
+    const { fetchComments } = this.props
     const { comment } = this.state
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h4>Add a Comment</h4>
-        <textarea onChange={this.handleChange} value={comment} />
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <h4>Add a Comment</h4>
+          <textarea onChange={this.handleChange} value={comment} />
+          <div>
+            <button type="submit">Submit Comment</button>
+          </div>
+        </form>
         <div>
-          <button type="submit">Submit Comment</button>
+          <button type="button" onClick={fetchComments}>
+            Fetch Comments
+          </button>
         </div>
-      </form>
+      </div>
     )
   }
 }
